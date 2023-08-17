@@ -1,0 +1,633 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title></title>
+    <script type="text/javascript" src="http://www.webdm.cn/images/20091119/jquery-latest.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("ul.subnav").parent().append("<span></span>"); //Only shows drop down trigger when js is enabled - Adds empty span tag after ul.subnav
+
+            $("ul.topnav li span").click(function () { //When trigger is clicked...
+
+                //Following events are applied to the subnav itself (moving subnav up and down)
+                $(this).parent().find("ul.subnav").slideDown('fast').show(); //Drop down the subnav on click
+
+                $(this).parent().hover(function () {
+                }, function () {
+                    $(this).parent().find("ul.subnav").slideUp('slow'); //When the mouse hovers out of the subnav, move it back up
+                });
+
+                //Following events are applied to the trigger (Hover events for the trigger)
+            }).hover(function () {
+                $(this).addClass("subhover"); //On hover over, add class "subhover"
+            }, function () {	//On Hover Out
+                $(this).removeClass("subhover"); //On hover out, remove class "subhover"
+            });
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 100) {
+                    $('#goTop').stop().animate({
+                        top: '20px'
+                    }, 500);
+                }
+                else {
+                    $('#goTop').stop().animate({
+                        top: '-100px'
+                    }, 500);
+                }
+            });
+            $('#goTop').click(function () {
+                $('html, body').stop().animate({
+                    scrollTop: 0
+                }, 500, function () {
+                    $('#goTop').stop().animate({
+                        top: '-100px'
+                    }, 500);
+                });
+            });
+
+        });
+    </script>
+    <style type="text/css">
+        body {
+            color: #000;
+            margin: 0;
+            padding: 0;
+            font: 10px Arial, Helvetica, sans-serif;
+            background: #000000;
+        }
+
+        .container {
+            width: 870px;
+            margin: 0 auto;
+            position: relative;
+
+        }
+
+        #header {
+            background: url(http://openwetware.org/images/d/db/HKBU_2013_Top_logo2.jpg) no-repeat center top;
+            padding-top: 200px;
+            align: center;
+        }
+
+        #header .disclaimer {
+            color: #999;
+            padding: 100px 0 7px 0;
+            text-align: right;
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        #header .disclaimer a {
+            color: #ccc;
+        }
+
+        ul.topnav {
+            list-style: none;
+            padding: 0 20px;
+            margin: 0;
+            float: left;
+            width: 850px;
+            background: #222;
+            font-size: 1.0em;
+            background: url(http://www.webdm.cn/images/20091119/topnav_bg.gif) repeat-x;
+        }
+
+        ul.topnav li {
+            float: left;
+            margin: 0;
+            padding: 0 15px 0 0;
+            position: relative;
+            /*--Declare X and Y axis base--*/
+        }
+
+        ul.topnav li a {
+            padding: 10px 5px;
+            color: #fff;
+            display: block;
+            text-decoration: none;
+            float: left;
+        }
+
+        ul.topnav li a:hover {
+            background: url(http://www.webdm.cn/images/20091119/topnav_hover.gif) no-repeat center top;
+        }
+
+        ul.topnav li span {
+            /*--Drop down trigger styles--*/
+            width: 17px;
+            height: 35px;
+            float: left;
+            background: url(http://www.webdm.cn/images/20091119/subnav_btn.gif) no-repeat center top;
+        }
+
+        ul.topnav li span.subhover {
+            background-position: center bottom;
+            cursor: pointer;
+        }
+
+        /*--Hover effect for trigger--*/
+        ul.topnav li ul.subnav {
+            list-style: none;
+            position: absolute;
+            /*--Important - Keeps subnav from affecting main navigation flow--*/
+            z-index: 110;
+            left: 0;
+            top: 35px;
+            background: #333;
+            margin: 0;
+            padding: 0;
+            display: none;
+            float: left;
+            width: 170px;
+            -moz-border-radius-bottomleft: 5px;
+            -moz-border-radius-bottomright: 5px;
+            -webkit-border-bottom-left-radius: 5px;
+            -webkit-border-bottom-right-radius: 5px;
+            border: 1px solid #111;
+        }
+
+        ul.topnav li ul.subnav li {
+            margin: 0;
+            padding: 0;
+            border-top: 1px solid #252525;
+            /*--Create bevel effect--*/
+            border-bottom: 1px solid #444;
+            /*--Create bevel effect--*/
+            clear: both;
+            width: 170px;
+        }
+
+        html ul.topnav li ul.subnav li a {
+            float: left;
+            width: 145px;
+            background: #333 url(http://www.webdm.cn/images/20091119/dropdown_linkbg.gif) no-repeat 10px center;
+            padding-left: 20px;
+        }
+
+        html ul.topnav li ul.subnav li a:hover {
+            /*--Hover effect for subnav links--*/
+            background: #222 url(http://www.webdm.cn/images/20091119/dropdown_linkbg.gif) no-repeat 10px center;
+        }
+
+        #header img {
+            margin: 20px 0 10px;
+        }
+
+        #editHeader {
+            /*
+	margin-top: -18px;
+	*/
+            float: right;
+            z-index: 11;
+            float: right;
+        }
+
+        .cf:before,
+        .cf:after {
+            display: none;
+            content: " ";
+            /* 1 */
+            display: table;
+            /* 2 */
+        }
+
+        .cf:after {
+            clear: both;
+        }
+
+        #goTop {
+            background: yellow;
+            padding: 5px;
+            position: fixed;
+            top: -100px;
+            right: 10px;
+            z-index: 100;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div id="header">
+            <ul class="topnav">
+                <li><a href="/">HOME</a></li>
+                <li>
+                    <a href="/introduction#">DESIGN</a>
+                    <ul class="subnav">
+                        <li><a href="/introduction#Project_Title">Project
+                                Title</a></li>
+                        <li><a href="/introduction#Project_Abstract">Project
+                                Abstract</a></li>
+                        <li><a href="/introduction#Result">Result</a></li>
+                        <li><a href="/introduction#Discussion">Discussion</a>
+                        </li>
+                        <li><a href="/introduction#Potential_Application">Potential
+                                Application</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/methodology#">METHODOLOGY</a>
+                    <ul class="subnav">
+                        <li><a href="/methodology#List_of_Materials">List of
+                                Materials</a></li>
+                        <li><a href="/methodology#SEM_imaging">SEM
+                                imaging</a></li>
+                        <li><a href="/methodology#AFM_imaging">AFM
+                                imaging</a></li>
+                        <li><a href="/methodology#FM_imaging">FM imaging</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li><a href="/experiment#">PROCESS</a>
+                    <ul class="subnav">
+                        <li><a href="/experiment#LATEST_RESULT">Latest
+                                Result</a></li>
+                        <li><a href="/experiment#OCTOBER_FULL_LOG">October
+                                Full Log</a></li>
+                        <li><a href="/experiment#SEPTEMBER_FULL_LOG">September
+                                Full Log</a></li>
+                        <li><a href="/experiment#AUGUST_FULL_LOG">August
+                                Full Log</a></li>
+                        <li><a href="/experiment#JULY_FULL_LOG">July Full
+                                Log</a></li>
+                        <li><a href="/experiment#JUNE_FULL_LOG">June Full
+                                Log</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="/Team#">TEAM</a>
+                    <ul class="subnav">
+                        <li><a href="/Team#Team">Team</a></li>
+                        <li><a href="/Team#Member">Member</a></li>
+                        <li><a href="/Team#Supervisor">Supervisor</a></li>
+                        <li><a href="/Team#Graduate_Mentor">Graduate
+                                Mentor</a></li>
+                        <li><a href="/Team#Collaborator">Collaborator</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/approaches">SUPPLEMENTARY</a>
+
+                </li>
+                <li><a href="/reference#">REFERENCE</a></li>
+                <li><a href="/acknowledge#">ACKNOWLEDGE</a></li>
+            </ul>
+        </div>
+    </div>
+    <a id="goTop">Back to Top</a>
+
+    <div class="cf"></div>
+</body>
+
+</html>
+
+<html>
+<!--</div>-->
+
+<head>
+    <meta charset="utf-8">
+    <title>BIOMOD 2013 The Rising Power</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "微软雅黑", "Arial";
+        }
+
+        body {
+            width: 960px;
+            height: auto;
+            margin: 0 auto;
+            background-color: #000;
+            border: #000 thin solid;
+        }
+
+        #goTopBtn {
+            POSITION: fixed;
+            TEXT-ALIGN: center;
+            LINE-HEIGHT: 30px;
+            WIDTH: 100px;
+            BOTTOM: 35px;
+            HEIGHT: 100px;
+            FONT-SIZE: 12px;
+            RIGHT: 30px;
+        }
+
+        #content {
+            margin: 0;
+            padding: 0;
+            border: 0px;
+        }
+
+        /*hidden section*/
+        .firstHeading {
+            display: none;
+        }
+
+        #sidebar-main {
+            display: none;
+        }
+
+        #p-cactions {
+            display: none;
+        }
+
+        #p-personal {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+</html>
+=LAB LOGS=
+==LATEST RESULT==
+
+===October 26th===
+
+We finished the construction of wiki. The last Sunday meeting would be held tomorrow (October 27th), and we would have
+rehearsal on the presentation next week before heading to Harvard. Hello Boston! :)
+
+===October 25th===
+
+We completed the t-shirt design. The contents of wiki were kept being uploaded.
+
+===October 24th===
+
+We completed the awesome 3-min video and uploaded onto YouTube.
+
+===October 21st===
+
+We recorded the audio track of the video and combined the animation with the video.
+
+===October 20th===
+
+We revised the flash animation and improved some parts of the video.
+
+===October 18th===
+
+We continued working on the animation of the academic part of the video, and we decided to modify some parts of the
+video this Sunday (October 20th).
+
+===October 16th===
+
+We continued and completed the recording of the story part of the YouTube video with the help of Michael Huang. After
+the recording, we discussed the academic part of the video. We expect to finish the academic part by Saturday and start
+the sound recording.
+
+===October 13th===
+
+We held the 6th meeting of the semester. In the meeting, we planned the outline and distributed everyone’s role in the
+presentation. We also conducted the first trial of video recording with the help of Michael Huang. We will continue the
+video recording next Wednesday (October 16th)
+
+===October 10th===
+
+We conducted AFM imaging with the help of Mr. Fang Yuqiang today.
+
+Results of AFM imaging:
+
+[[Image:HKBU 2013 Oct10re56.jpg|center|d]]
+
+<html>
+<p align="center">DNA origami, size scale: 5.0µm X 5.0µm, height scale: -6.0nm – 6.0nm</p>
+
+</html>
+
+[[Image:HKBU 2013 Oct10re16.jpg|center|d]]
+
+<html>
+<p align="center">Abeta fibril, size scale: 1.0µm X 1.0µm, height scale: -6.0nm – 6.0nm</p>
+
+</html>
+
+[[Image:HKBU 2013 Oct10qre56.jpg|center|d]]
+
+<html>
+<p align="center">Abeta + Streptavidin + DNA + QD, size scale: 5.0µm X 5.0µm, height scale: -6.0nm – 6.0nm</p>
+
+</html>
+
+Clear Aβ fibrils were shown. In addition, we performed analysis to the images of atomic force microscope.
+
+===October 8th===
+
+We conducted FM imaging with the help of Ms. Ashley Ho today.
+
+Results of FM imaging:
+
+[[Image:HKBU 2013 Oct08re014(1).gif|center|d]]
+
+<html>
+<p align="center">Abeta + Streptavidin + DNA + QD (1), size scale: 0.14mm X 0.14mm</p>
+
+</html>
+
+[[Image:HKBU 2013 Oct08re014(2).gif|center|d]]
+
+<html>
+<p align="center">Abeta + Streptavidin + DNA + QD (2), size scale: 0.14mm X 0.14mm</p>
+
+</html>
+
+We analyzed the images of fluorescence microscopy, and the slides for AFM imaging were prepared.
+
+===October 7th===
+
+We contacted Michael Huang, a sophomore student major in Cinema and Television, to support the recording of the YouTube
+video.
+
+DNA samples were prepared for FM imaging on Tuesday.
+
+===October 6th===
+
+We held the fifth meeting of the semester. During the meeting, we discussed the flow and technical problems of the
+YouTube video, the design of the T-shirt, the results of experiment last week. We decided to conduct experiments for one
+more week to obtain some more confident results, and we were going to start the first trial of video recording next
+Sunday.
+
+===October 5th===
+
+A 1.5% agarose gel electrophoresis was conducted. Photo was captured, and the target bands were excised and undergone
+gel extraction according to the protocol (see methodology). After gel extraction and purification, the concentration of
+DNA was determined by Nanodrop.
+
+[[Image:HKBU 2013 Oct05t1.jpg|center|d]]
+
+Result of gel electrophoresis:
+
+[[Image:HKBU 2013 Oct05p1.jpg|center|d]]
+
+Result (inverted color):
+
+[[Image:HKBU 2013 Oct05p2.jpg|center|d]]
+
+===October 4th===
+
+A new annealing process was conducted at 17:20 today according to the parameters shown in August 23rd.
+
+===October 3rd===
+
+We conducted FM imaging with the help of Ms. Ashley Ho today.
+Results of FM imaging:
+
+[[Image:HKBU 2013 Oct03q1.jpg|center|d]]
+
+<html>
+<p align="center">Abeta + QD, size scale: 0.14mm X 0.14mm</p>
+
+</html>
+
+Clear and bright fibril patterns of QD were obtained.
+
+[[Image:HKBU 2013 Oct03q2.jpg|center|d]]
+
+<html>
+<p align="center">Abeta + Streptavidin + DNA + QD, size scale: 0.14mm X 0.14mm</p>
+
+</html>
+
+Clear and bright fibril patterns of QD were observed, but less QD aligned. The pattern is assumed to be caused by
+repulsion effect between streptavidin molecules and between DNA origami structures, which need to be supported by
+evidence from AFM imaging.
+
+Diagram of the hypothesis:
+
+[[Image:HKBU 2013 Hypo0.jpg|center|d]]
+
+Results of AFM imaging:
+
+[[Image:HKBU 2013 Oct03t1.jpg|center|d]]
+
+
+
+[[Image:HKBU 2013 Oct03s2.jpg|center|d]]
+
+<html>
+<p align="center">Slide 2 (Quantum dots), size scale: 5.0µm X 5.0µm, height scale: -6.0nm – 6.0nm</p>
+
+</html>
+
+[[Image:HKBU 2013 Oct03s3.jpg|center|d]]
+
+<html>
+<p align="center">Slide 3 (DNA origami), size scale: 5.0µm X 5.0µm, height scale: -6.0nm – 6.0nm</p>
+
+</html>
+
+[[Image:HKBU 2013 Oct03s4.jpg|center|d]]
+
+<html>
+<p align="center">Slide 4 (Streptavidin), size scale: 5.0µm X 5.0µm, height scale: -6.0nm – 6.0nm</p>
+
+</html>
+
+[[Image:HKBU 2013 Oct03s5.jpg|center|d]]
+
+<html>
+<p align="center">Slide 5 (Abeta fibrils), size scale: 5.0µm X 5.0µm, height scale: -6.0nm – 6.0nm</p>
+
+</html>
+
+[[Image:HKBU 2013 Oct03s6.jpg|center|d]]
+
+<html>
+<p align="center">Slide 6 (Abeta + QD), size scale: 5.0µm X 5.0µm, height scale: -6.0nm – 6.0nm</p>
+
+</html>
+
+[[Image:HKBU 2013 Oct03s121.jpg|center|d]]
+
+<html>
+<p align="center">Slide 12 (Abeta + Streptavidin + DNA + QD), size scale: 5.0µm X 5.0µm,
+    height scale: -6.0nm – 6.0nm</p>
+
+</html>
+
+[[Image:HKBU 2013 Oct03s122.jpg|center|d]]
+
+<html>
+<p align="center">Slide 12 (2) (Abeta + Streptavidin + DNA + QD), size scale: 5.0µm X 5.0µm,
+    height scale: -6.0nm – 6.0nm</p>
+
+</html>
+
+[[Image:HKBU 2013 Oct03s123.jpg|center|d]]
+
+<html>
+<p align="center">Slide 12 (3) (Abeta + Streptavidin + DNA + QD), size scale: 1.0µm X 1.0µm,
+    height scale: -6.0nm – 6.0nm</p>
+
+</html>
+
+Clear fibrils and STV-DNA-QD-conjugated fibrils were captured. The patterns of both “Abeta-QD” and
+“Abeta-Streptavidin-DNA-QD” have been obtained. Clear decorations of "STV-DNA-QD" on the fibril can be observed, which
+can be confirmed by the FM imaging, and there were less particles decorated on the streptavidin-coated Abeta fibrils
+compared with the sample "Abeta-QD", which supports the assumption that when conjugating STV and DNA origami, repulsion
+between these molecules reduce the number of QD attaching to the fibril. The next AFM imaging is reserved next Thursday
+(October 10th).
+
+===October 2nd===
+
+Slides for AFM imaging were prepared.
+
+Details of the slides:
+
+[[Image:HKBU 2013 Oct03t1.jpg|center|d]]
+
+==OCTOBER FULL LOG==
+
+HKBU 2013 Lab_Diary_Oct.docx
+<html>
+<a href="http://openwetware.org/images/d/de/HKBU_2013_Lab_Diary_Oct.docx">Download & Check</a>
+
+</html>
+
+==SEPTEMBER FULL LOG==
+
+HKBU 2013 Lab_Diary_Sep.docx
+<html>
+<a href="http://openwetware.org/images/a/a0/HKBU_2013_Lab_Diary_Sep.docx">Download & Check</a>
+
+</html>
+
+==AUGUST FULL LOG==
+
+HKBU 2013 Lab_Diary_Aug.docx
+<html>
+<a href="http://openwetware.org/images/c/c1/HKBU_2013_Lab_Diary_Aug.docx">Download & Check</a>
+
+</html>
+
+==JULY FULL LOG==
+
+HKBU 2013 Lab_Diary_Jul.docx
+<html>
+<a href="http://openwetware.org/images/c/c5/HKBU_2013_Lab_Diary_Jul.docx">Download & Check</a>
+
+</html>
+
+==JUNE FULL LOG==
+
+HKBU 2013 Lab_Diary_Jun.docx
+<html>
+<a href="http://openwetware.org/images/4/48/HKBU_2013_Lab_Diary_Jun.docx">Download & Check</a>
+
+</html>
+
+
+<html>
+</div>
+
+</body>
+
+</html>
