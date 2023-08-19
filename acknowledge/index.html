@@ -10,8 +10,6 @@
     <link rel="stylesheet" href="/css/header.css">
 </head>
 
-<!-- Update below to Bootstrap 5 -->
-
 <body>
     <div class="container">
         <div id="header">
@@ -31,69 +29,93 @@
 
     <div class="cf"></div>
     
-    <div class="container">
+    <main class="container">
 
 <h1>Acknowledgement</h1>
 
-This project is sponsored by Faculty of Science and School of Chinese Medicine, Hong Kong Baptist University, and the
-work is in collaboration with Dr. Lai Wai Chiu's laboratory in Department of Mechanical and Biomedical Engineering, City
-University of Hong Kong. We thank Prof. Yung Kin Lam, Dr. Yue Ying Kit, and Dr. Li Hung Wing for providing professional
-instructions and full supports to the team. We thank Mr. Fang Yuqiang, Ms. Ashley Ho, and Mr. Ip Wang Kwong for
-assistance in microscopy. We would also like to deliver special gratitude to Mr. Huang Baichuan for his contribution to
-the YouTube video, Ms. Qian Jiangfan for designing the T-shirt, and Ms. Wu Peiyue for photographic documentation.
+<hr>
 
-<div align="center">
-    <table align="center" width="600 px">
-        <tr>
-            <td>
-                <p><img src="http://openwetware.org/images/c/c5/HKBU_2013_falogo.jpg" width="402" height="135" alt="" />
-                </p>
-                <p><img src="http://openwetware.org/images/2/2e/HKBU_2013_cmlogo.JPG" width="336" height="135" alt="" />
-                </p>
-                <p> <img src="http://openwetware.org/images/0/02/HKBU_2013_bulogo.jpg" width="558" height="135"
-                        alt="" /></p>
-                <div align="center"><img src="http://openwetware.org/images/c/cb/HKBU_2013_bilogo.JPG" alt=""
-                        width="357" height="122" align="middle" /></div>
-                </p>
-            </td>
-        </tr>
-    </table>
+<p class="fs-6">This project is sponsored by Faculty of Science and School of Chinese Medicine, Hong Kong Baptist University, and the work is in collaboration with Dr. Lai Wai Chiu's laboratory in Department of Mechanical and Biomedical Engineering, City University of Hong Kong. We thank Prof. Yung Kin Lam, Dr. Yue Ying Kit, and Dr. Li Hung Wing for providing professional instructions and full supports to the team. We thank Mr. Fang Yuqiang, Ms. Ashley Ho, and Mr. Ip Wang Kwong for assistance in microscopy. We would also like to deliver special gratitude to Mr. Huang Baichuan for his contribution to the YouTube video, Ms. Qian Jiangfan for designing the T-shirt, and Ms. Wu Peiyue for photographic documentation.</p>
+
+<div class="row p-3" align="center">
+    <div class="col-4">
+        <img src="http://openwetware.org/images/c/c5/HKBU_2013_falogo.jpg" width="100%" alt="" />
+    </div>
+    <div class="col-4">
+        <img src="http://openwetware.org/images/2/2e/HKBU_2013_cmlogo.JPG" width="100%" alt="" />
+    </div>
+    <div class="col-4">
+        <img src="http://openwetware.org/images/0/02/HKBU_2013_bulogo.jpg" width="100%" alt="" />
+    </div>
+</div>
+
+<div class="row p-3" align="center">
+    <div class="col-6 offset-3">
+        <img src="http://openwetware.org/images/c/cb/HKBU_2013_bilogo.JPG" width="100%" alt="" />
+    </div>
 </div>
 
 <h1>Photo Gallery</h1>
 
-<p>With limited resources and experience, for a bunch of undergraduates to accomplish anything is never easy. That is also
-why this journey with my team and teammates is so precious and inspiring to me. Not only that it gives me the platform
-to be creative and daring, to make every problem an opportunity, it shows me that our capacity to cope successfully with
-challenges far outstrips our capacity to feel frustration. A journey of this kind provides its own kind of beauty and
-richness. On the other side, we will emerge transformed, brighter, braver and more confident for having broke through
-the frozen barrier.</p>
+<hr>
 
-<p align="right">Zhang Junqing,BIOMOD Team Member.</p>
+<p class="fs-6">With limited resources and experience, for a bunch of undergraduates to accomplish anything is never easy. That is also why this journey with my team and teammates is so precious and inspiring to me. Not only that it gives me the platform to be creative and daring, to make every problem an opportunity, it shows me that our capacity to cope successfully with challenges far outstrips our capacity to feel frustration. A journey of this kind provides its own kind of beauty and richness. On the other side, we will emerge transformed, brighter, braver and more confident for having broke through the frozen barrier.</p>
 
-<table>
-    <tr>
-        <td><img src="http://openwetware.org/images/3/37/HKBU_2013_10.JPG" width="240" height="180" alt="" /></td>
-        <td><img src="http://openwetware.org/images/f/f5/HKBU_2013_11.jpg" width="240" height="180" alt="" /></td>
-        <td><img src="http://openwetware.org/images/b/bf/HKBU_2013_22.jpg" width="240" height="180" alt="" /></td>
-    </tr>
-    <tr>
-        <td><img src="http://openwetware.org/images/1/18/HKBU_2013_12.jpg" width="240" height="180" alt="" /></td>
-        <td><img src="http://openwetware.org/images/4/4b/HKBU_2013_26.jpg" width="240" height="180" alt="" /></td>
-        <td><img src="http://openwetware.org/images/4/44/HKBU_2013_20.jpg" width="240" height="180" alt="" /></td>
-    </tr>
-    <tr>
-        <td><img src="http://openwetware.org/images/d/d6/HKBU_2013_23.jpg" width="240" height="180" alt="" /></td>
-        <td><img src="http://openwetware.org/images/0/0b/HKBU_2013_25.jpg" width="240" height="180" alt="" /></td>
-        <td><img src="http://openwetware.org/images/9/9b/HKBU_2013_21.jpg" width="240" height="170" alt="" /></td>
-    </tr>
+<p class="fs-6 text-end">Zhang Junqing,BIOMOD Team Member.</p>
 
-</table>
-
+<div id="photoGallery" class="carousel slide w-100 mb-4" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#photoGallery" data-bs-slide-to="0" class="active" aria-current="true"
+            aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#photoGallery" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#photoGallery" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#photoGallery" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        <button type="button" data-bs-target="#photoGallery" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        <button type="button" data-bs-target="#photoGallery" data-bs-slide-to="5" aria-label="Slide 6"></button>
+        <button type="button" data-bs-target="#photoGallery" data-bs-slide-to="6" aria-label="Slide 7"></button>
+        <button type="button" data-bs-target="#photoGallery" data-bs-slide-to="7" aria-label="Slide 8"></button>
+        <button type="button" data-bs-target="#photoGallery" data-bs-slide-to="8" aria-label="Slide 9"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="http://openwetware.org/images/3/37/HKBU_2013_10.JPG" class="d-block w-100" alt="" />
+        </div>
+        <div class="carousel-item">
+            <img src="http://openwetware.org/images/f/f5/HKBU_2013_11.jpg" class="d-block w-100" alt="" />
+        </div>
+        <div class="carousel-item">
+            <img src="http://openwetware.org/images/b/bf/HKBU_2013_22.jpg" class="d-block w-100" alt="" />
+        </div>
+        <div class="carousel-item">
+            <img src="http://openwetware.org/images/1/18/HKBU_2013_12.jpg" class="d-block w-100" alt="" />
+        </div>
+        <div class="carousel-item">
+            <img src="http://openwetware.org/images/4/4b/HKBU_2013_26.jpg" class="d-block w-100" alt="" />
+        </div>
+        <div class="carousel-item">
+            <img src="http://openwetware.org/images/4/44/HKBU_2013_20.jpg" class="d-block w-100" alt="" />
+        </div>
+        <div class="carousel-item">
+            <img src="http://openwetware.org/images/d/d6/HKBU_2013_23.jpg" class="d-block w-100" alt="" />
+        </div>
+        <div class="carousel-item">
+            <img src="http://openwetware.org/images/0/0b/HKBU_2013_25.jpg" class="d-block w-100" alt="" />
+        </div>
+        <div class="carousel-item">
+            <img src="http://openwetware.org/images/9/9b/HKBU_2013_21.jpg" class="d-block w-100" alt="" />
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#photoGallery" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#photoGallery" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
 </div>
-<div class="link">
-    <a href="http://openwetware.org/index.php?title=Biomod/2013/HKBU/acknowledge&action=edit">edit</a>
-</div>
+
+</main>
 
 </body>
 
